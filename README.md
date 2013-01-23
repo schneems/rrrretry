@@ -6,7 +6,9 @@ Because `retry` was already taken.
 
 In your `Gemfile` add:
 
-    gem 'rrrretry'
+```ruby
+gem 'rrrretry'
+```
 
 Then run `bundle install`.
 
@@ -76,5 +78,5 @@ Yes. Do as I say, not as I do.
 
 ## License
 
-MIT YO. See MIT-LICENSE for more info
+MIT YO. See [MIT-LICENSE](https://github.com/schneems/rrrretry/blob/master/MIT-LICENSE) for more info.
 
