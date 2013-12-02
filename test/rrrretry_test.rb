@@ -30,4 +30,12 @@ class Rrrrretry_test < Test::Unit::TestCase
     assert_equal 1, result
     GenericEnumerable.new([]).retry {} # ensure no errors
   end
+
+  def test_raising_stop_iteration
+    assert_raise(StopIteration) do
+      2.times.retry do
+        raise StopIteration
+      end
+    end
+  end
 end
