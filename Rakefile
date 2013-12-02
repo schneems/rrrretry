@@ -20,19 +20,3 @@ Rake::TestTask.new(:test) do |t|
   t.pattern = 'test/**/*_test.rb'
   t.verbose = false
 end
-
-
-
-require 'jeweler'
-Jeweler::Tasks.new do |gem|
-  # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name        = "rrrretry"
-  gem.homepage    = "http://github.com/schneems/rrrretry"
-  gem.license     = "MIT"
-  gem.summary     = %Q{re-run your code}
-  gem.description = %Q{did i stutter?}
-  gem.email       = "richard.schneeman@gmail.com"
-  gem.authors     = ["schneems"]
-  # dependencies defined in Gemfile
-end
-Jeweler::RubygemsDotOrgTasks.new

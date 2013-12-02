@@ -37,5 +37,11 @@ class Rrrrretry_test < Test::Unit::TestCase
         raise StopIteration
       end
     end
+
+    assert_raise(StopIteration) do
+      1.times.retry do
+        raise StopIteration
+      end
+    end
   end
 end

@@ -25,11 +25,23 @@ module Enumerable
   #  array.each.retry(Exception, SignalException) { |i| i.call }
   #  # => 1
   def retry(*exceptions, &block)
-    exceptions << StandardError if exceptions.empty?
-    enum       ||= self.to_enum
-    yield enum.next
-  rescue *exceptions => e
-    last_exception = e and retry unless e.is_a? StopIteration
-    raise last_exception unless last_exception.nil?
+    exceptions     << StandardError if exceptions.empty?
+    enum           = self.to_enum
+    last_exception = nil
+
+    while true do
+      begin
+        value = enum.next
+      rescue StopIteration => e
+        raise  last_exception if last_exception
+        return false
+      end
+
+      begin
+        return yield value
+      rescue *exceptions => e
+        last_exception = e
+      end
+    end
   end
 end
