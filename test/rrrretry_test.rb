@@ -44,4 +44,14 @@ class Rrrrretry_test < Test::Unit::TestCase
       end
     end
   end
+
+  def test_passes_previous_exception
+    exceptions = []
+    3.times.retry do |en,ex|
+      exceptions << (ex.nil? ? 'nil' : ex.message)
+      1/en
+    end
+
+    assert_equal(['nil', 'divided by 0'], exceptions)
+  end
 end

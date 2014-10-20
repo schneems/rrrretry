@@ -38,7 +38,7 @@ module Enumerable
       end
 
       begin
-        return yield value
+        return yield value, last_exception
       rescue *exceptions => e
         last_exception = e
       end

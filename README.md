@@ -53,6 +53,17 @@ array.each.retry(Exception, SignalException) { |i| i.call }
   # => 1
 ```
 
+For the sake of reporting, previous exceptions are passed to the block.
+
+```ruby
+[0, 1].each.retry do |i, ex|
+  puts "LOG: Retrying due to exception: #{ex.to_s}" unless ex.nil?
+  raise "bar"
+end
+  # => LOG: Retrying due to exception: bar
+  # => RuntimeError: bar
+```
+
 ## Is it Complex?
 
 Naw, it's 8 lines of ruby:
