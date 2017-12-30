@@ -1,4 +1,5 @@
 # rrrretry
+[![Help Contribute to Open Source](https://www.codetriage.com/schneems/rrrretry/badges/users.svg)](https://www.codetriage.com/schneems/rrrretry)
 
 Because `retry` was already taken.
 
